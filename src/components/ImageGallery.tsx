@@ -46,12 +46,7 @@ const ImageGallery: React.FC = () => {
             />
             <IconButton
               onClick={() => handleDelete(src.replace("/screen/", ""))}
-              style={{
-                color: "#fff !important",
-                backgroundColor: "#F44336 !important",
-                borderRadius: "5px !important",
-              }}
-              className="absolute top-2 right-2 w-full"
+              className="absolute top-2 text-white bg-[#F44336] rounded-[5px] right-2 w-full"
             >
               <DeleteIcon />
             </IconButton>
