@@ -19,12 +19,16 @@ const ImageGallery: React.FC = () => {
       <h2 className="text-2xl font-bold mb-4">Screenshots</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {images.map((src, index) => (
-          <img
-            key={index}
-            src={BASE_URL + src}
-            alt={`Screenshot ${index + 1}`}
-            className="w-full h-auto rounded shadow"
-          />
+          <div key={index}>
+            <h3 className="text-center font-semibold mb-3">
+              {src.slice(0, -7)}
+            </h3>
+            <img
+              src={BASE_URL + src}
+              alt={`Screenshot ${index + 1}`}
+              className="w-full h-auto rounded shadow"
+            />
+          </div>
         ))}
       </div>
     </div>
