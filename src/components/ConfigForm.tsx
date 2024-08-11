@@ -126,7 +126,7 @@ const ConfigForm: React.FC = () => {
         {pages.map((page, index) => (
           <div key={index} className="flex items-center mb-2">
             <h3 className="mb-3 font-semibold">
-              {pagesInformation[page.slice(-5)]}
+              {pagesInformation[page.slice(-7)]}
             </h3>
             <TextField
               label={`Page ${index + 1}`}
