@@ -7,6 +7,7 @@ import {
 } from "../services/api.ts";
 import { IconButton } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
+import "./index.css";
 
 const BASE_URL = API_URL + "/screen/";
 
@@ -46,7 +47,7 @@ const ImageGallery: React.FC = () => {
             />
             <IconButton
               onClick={() => handleDelete(src.replace("/screen/", ""))}
-              className="absolute top-2 text-white bg-[#F44336] rounded-[5px] right-2 w-full"
+              className="absolute top-2 right-2 w-full delete-btn"
             >
               <DeleteIcon />
             </IconButton>
