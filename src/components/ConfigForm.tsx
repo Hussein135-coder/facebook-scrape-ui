@@ -124,25 +124,27 @@ const ConfigForm: React.FC = () => {
       <div className="mt-4 mb-6">
         <h3 className="font-bold mb-4">Facebook Pages:</h3>
         {pages.map((page, index) => (
-          <div key={index} className="flex items-center mb-2">
-            <h3 className="mb-3 font-semibold">
+          <div key={index}>
+            <h3 className="mb-3 font-semibold text-center">
               {pagesInformation[page.slice(-7)]}
             </h3>
-            <TextField
-              label={`Page ${index + 1}`}
-              value={page}
-              onChange={(e) =>
-                handleInputChange(index, e.target.value, setPages)
-              }
-              fullWidth
-              required
-            />
-            <IconButton
-              onClick={() => handleRemoveField(index, setPages)}
-              disabled={pages.length === 1}
-            >
-              <RemoveIcon />
-            </IconButton>
+            <div className="flex items-center mb-2">
+              <TextField
+                label={`Page ${index + 1}`}
+                value={page}
+                onChange={(e) =>
+                  handleInputChange(index, e.target.value, setPages)
+                }
+                fullWidth
+                required
+              />
+              <IconButton
+                onClick={() => handleRemoveField(index, setPages)}
+                disabled={pages.length === 1}
+              >
+                <RemoveIcon />
+              </IconButton>
+            </div>
           </div>
         ))}
         <Button
