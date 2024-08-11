@@ -52,6 +52,7 @@ interface PagesObject {
 }
 
 export const pagesInformation: PagesObject = {
+  loginFa: "حساب الفيسبوك",
   "6544313": "وزارة التربية",
   "a.syria": "بكالوريا سورريا",
   iaplus5: "سوريا التعليمية",
