@@ -16,3 +16,8 @@ export const getImages = async () => {
   const response = await axios.get(`${API_URL}/images`);
   return response.data;
 };
+
+export const deleteImage = async (filename: string) => {
+  const response = await axios.delete(`${API_URL}/images/${filename}`);
+  return response.data;
+};
