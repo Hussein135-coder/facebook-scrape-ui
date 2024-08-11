@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { TextField, Button, IconButton } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
-import { getConfig, updateConfig } from "../services/api";
+import { getConfig, pagesInformation, updateConfig } from "../services/api";
 
 const ConfigForm: React.FC = () => {
   const [facebookEmail, setFacebookEmail] = useState("");
@@ -125,6 +125,9 @@ const ConfigForm: React.FC = () => {
         <h3 className="font-bold mb-4">Facebook Pages:</h3>
         {pages.map((page, index) => (
           <div key={index} className="flex items-center mb-2">
+            <h3 className="mb-3 font-semibold">
+              {pagesInformation[page.slice(-5)]}
+            </h3>
             <TextField
               label={`Page ${index + 1}`}
               value={page}

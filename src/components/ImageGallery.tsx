@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { getImages, API_URL, deleteImage } from "../services/api.ts";
+import {
+  getImages,
+  API_URL,
+  deleteImage,
+  pagesInformation,
+} from "../services/api.ts";
 import { IconButton } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 
@@ -32,7 +37,7 @@ const ImageGallery: React.FC = () => {
         {images.map((src, index) => (
           <div key={index} className="relative">
             <h3 className="text-center font-semibold mb-3">
-              {src.slice(0, -7)}
+              {pagesInformation[src.slice(0, -5)]}
             </h3>
             <img
               src={BASE_URL + src}
