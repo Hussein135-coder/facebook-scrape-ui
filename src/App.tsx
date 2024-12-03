@@ -1,7 +1,5 @@
 import React from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
-import ConfigForm from "./components/ConfigForm.tsx";
-import ImageGallery from "./components/ImageGallery.tsx";
 import PersistLogin from "./components/PersistLogin.tsx";
 import Error from "./components/Error.tsx";
 import Home from "./components/Home.tsx";
