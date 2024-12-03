@@ -162,10 +162,33 @@ const ConfigForm: React.FC = () => {
               }
               fullWidth
               required
+              InputProps={{
+                style: {
+                  color: "white",
+                  borderColor: "white",
+                },
+              }}
+              InputLabelProps={{
+                style: { color: "rgb(249 250 251)" },
+              }}
+              sx={{
+                "& .MuiOutlinedInput-root": {
+                  "& fieldset": {
+                    borderColor: "white",
+                  },
+                  "&:hover fieldset": {
+                    borderColor: "white",
+                  },
+                  "&.Mui-focused fieldset": {
+                    borderColor: "white",
+                  },
+                },
+              }}
             />
             <IconButton
               onClick={() => handleRemoveField(index, setTelegramChatIds)}
               disabled={telegramChatIds.length === 1}
+              sx={{ color: "rgb(249 250 251)" }}
             >
               <RemoveIcon />
             </IconButton>
@@ -197,10 +220,33 @@ const ConfigForm: React.FC = () => {
                 }
                 fullWidth
                 required
+                InputProps={{
+                  style: {
+                    color: "white",
+                    borderColor: "white",
+                  },
+                }}
+                InputLabelProps={{
+                  style: { color: "rgb(249 250 251)" },
+                }}
+                sx={{
+                  "& .MuiOutlinedInput-root": {
+                    "& fieldset": {
+                      borderColor: "white",
+                    },
+                    "&:hover fieldset": {
+                      borderColor: "white",
+                    },
+                    "&.Mui-focused fieldset": {
+                      borderColor: "white",
+                    },
+                  },
+                }}
               />
               <IconButton
                 onClick={() => handleRemoveField(index, setPages)}
                 disabled={pages.length === 1}
+                sx={{ color: "rgb(249 250 251)" }}
               >
                 <RemoveIcon />
               </IconButton>

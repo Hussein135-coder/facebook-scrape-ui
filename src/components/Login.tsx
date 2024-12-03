@@ -77,7 +77,7 @@ const Login = () => {
 
     if (newUserNameErrors.length === 0 && newPasswordErrors.length === 0) {
       const res = await userLogin({
-        username: data.username, // Map username to email for API
+        username: data.username,
         password: data.password,
       });
 
@@ -86,7 +86,7 @@ const Login = () => {
       } else if (res.status === "Network Error") {
         setErrorMsg("Check network connection");
       } else {
-        navigate("/money");
+        navigate("/");
       }
     }
   };
