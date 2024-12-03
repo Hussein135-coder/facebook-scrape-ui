@@ -22,6 +22,7 @@ const ImageGallery: React.FC = () => {
     fetchImages();
   }, []);
 
+  console.log(images, "images");
   const handleDelete = async (filename: string) => {
     const response = await deleteImage(filename);
     if (response.success) {
@@ -32,27 +33,29 @@ const ImageGallery: React.FC = () => {
   };
 
   return (
-    <div className="w-full max-w-4xl bg-white p-8 rounded shadow-md mt-8">
+    <div className="w-full max-w-4xl bg-slate-700 text-gray-50 p-8 rounded shadow-md mt-8">
       <h2 className="text-2xl font-bold mb-4">Screenshots</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-        {images.map((src, index) => (
-          <div key={index} className="relative">
-            <h3 className="text-center font-semibold mb-3">
-              {pagesInformation[src.slice(0, -5)]}
-            </h3>
-            <img
-              src={BASE_URL + src}
-              alt={`Screenshot ${index + 1}`}
-              className="w-full h-auto rounded shadow"
-            />
-            <IconButton
-              onClick={() => handleDelete(src.replace("/screen/", ""))}
-              className="absolute top-2 right-2 w-full delete-btn"
-            >
-              <DeleteIcon />
-            </IconButton>
-          </div>
-        ))}
+        {Array.isArray(images) &&
+          images.length > 0 &&
+          images.map((src, index) => (
+            <div key={index} className="relative">
+              <h3 className="text-center font-semibold mb-3">
+                {pagesInformation[src.slice(0, -5)]}
+              </h3>
+              <img
+                src={BASE_URL + src}
+                alt={`Screenshot ${index + 1}`}
+                className="w-full h-auto rounded shadow"
+              />
+              <IconButton
+                onClick={() => handleDelete(src.replace("/screen/", ""))}
+                className="absolute top-2 right-2 w-full delete-btn"
+              >
+                <DeleteIcon />
+              </IconButton>
+            </div>
+          ))}
       </div>
     </div>
   );

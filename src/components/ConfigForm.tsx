@@ -58,7 +58,7 @@ const ConfigForm: React.FC = () => {
 
   return (
     <form
-      className="w-full max-w-lg bg-white p-8 rounded shadow-md"
+      className="w-full max-w-lg bg-slate-800 text-gray-50 p-8 rounded shadow-md"
       onSubmit={handleSubmit}
     >
       <TextField
@@ -69,6 +69,28 @@ const ConfigForm: React.FC = () => {
         fullWidth
         margin="normal"
         required
+        InputProps={{
+          style: {
+            color: "white",
+            borderColor: "white",
+          },
+        }}
+        InputLabelProps={{
+          style: { color: "rgb(249 250 251)" },
+        }}
+        sx={{
+          "& .MuiOutlinedInput-root": {
+            "& fieldset": {
+              borderColor: "white",
+            },
+            "&:hover fieldset": {
+              borderColor: "white",
+            },
+            "&.Mui-focused fieldset": {
+              borderColor: "white",
+            },
+          },
+        }}
       />
       <TextField
         label="Facebook Password"
@@ -79,6 +101,25 @@ const ConfigForm: React.FC = () => {
         fullWidth
         margin="normal"
         required
+        InputProps={{
+          style: { color: "white" },
+        }}
+        InputLabelProps={{
+          style: { color: "rgb(249 250 251)" },
+        }}
+        sx={{
+          "& .MuiOutlinedInput-root": {
+            "& fieldset": {
+              borderColor: "white",
+            },
+            "&:hover fieldset": {
+              borderColor: "white",
+            },
+            "&.Mui-focused fieldset": {
+              borderColor: "white",
+            },
+          },
+        }}
       />
       <TextField
         label="Bot Token"
@@ -88,11 +129,30 @@ const ConfigForm: React.FC = () => {
         fullWidth
         margin="normal"
         required
+        InputProps={{
+          style: { color: "white" },
+        }}
+        InputLabelProps={{
+          style: { color: "rgb(249 250 251)" },
+        }}
+        sx={{
+          "& .MuiOutlinedInput-root": {
+            "& fieldset": {
+              borderColor: "white",
+            },
+            "&:hover fieldset": {
+              borderColor: "white",
+            },
+            "&.Mui-focused fieldset": {
+              borderColor: "white",
+            },
+          },
+        }}
       />
 
       <div className="mt-4">
         <h3 className="font-bold mb-4">Telegram Chat IDs:</h3>
-        {telegramChatIds.map((chatId, index) => (
+        {telegramChatIds?.map((chatId, index) => (
           <div key={index} className="flex items-center mb-2">
             <TextField
               label={`Chat ID ${index + 1}`}
@@ -123,7 +183,7 @@ const ConfigForm: React.FC = () => {
 
       <div className="mt-4 mb-6">
         <h3 className="font-bold mb-4">Facebook Pages:</h3>
-        {pages.map((page, index) => (
+        {pages?.map((page, index) => (
           <div key={index}>
             <h3 className="mb-3 font-semibold text-center">
               {pagesInformation[page.slice(-7)]}
