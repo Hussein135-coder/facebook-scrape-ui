@@ -77,7 +77,7 @@ const Login = () => {
 
     if (newUserNameErrors.length === 0 && newPasswordErrors.length === 0) {
       const res = await userLogin({
-        email: data.username, // Map username to email for API
+        username: data.username, // Map username to email for API
         password: data.password,
       });
 

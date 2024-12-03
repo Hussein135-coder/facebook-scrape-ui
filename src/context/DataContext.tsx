@@ -29,7 +29,7 @@ export const DataContext = createContext<{
   user: User;
   setUser: (user: User) => void;
   userLogin: (userData: {
-    email: string;
+    username: string;
     password: string;
   }) => Promise<ApiResponse>;
   wait: boolean;
@@ -47,7 +47,7 @@ const DataContextProvider = ({ children }: { children: React.ReactNode }) => {
 
   // Login
   const userLogin = async (userData: {
-    email: string;
+    username: string;
     password: string;
   }): Promise<ApiResponse> => {
     setWait(true);
