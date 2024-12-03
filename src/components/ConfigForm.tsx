@@ -153,7 +153,7 @@ const ConfigForm: React.FC = () => {
       <div className="mt-4">
         <h3 className="font-bold mb-4">Telegram Chat IDs:</h3>
         {telegramChatIds?.map((chatId, index) => (
-          <div key={index} className="flex items-center mb-2">
+          <div key={index} className="flex items-center mb-4">
             <TextField
               label={`Chat ID ${index + 1}`}
               value={chatId}
