@@ -41,7 +41,7 @@ const ImageGallery: React.FC = () => {
           images.map((src, index) => (
             <div key={index} className="relative">
               <h3 className="text-center font-semibold mb-3">
-                {pagesInformation[src.slice(0, -5)]}
+                {pagesInformation[src.slice(0, -5)] || "Page"}
               </h3>
               <img
                 src={BASE_URL + src}

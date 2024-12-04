@@ -5,7 +5,7 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import { getConfig, pagesInformation, updateConfig } from "../services/api";
 
 const ConfigForm: React.FC = () => {
-  const [facebookEmail, setFacebookEmail] = useState("");
+  const [facebookEmails, setFacebookEmails] = useState<string[]>([""]);
   const [facebookPassword, setFacebookPassword] = useState("");
   const [botToken, setBotToken] = useState("");
   const [telegramChatIds, setTelegramChatIds] = useState<string[]>([""]);
@@ -14,7 +14,11 @@ const ConfigForm: React.FC = () => {
   useEffect(() => {
     const fetchConfig = async () => {
       const data = await getConfig();
-      setFacebookEmail(data.facebookEmail);
+      setFacebookEmails(
+        Array.isArray(data.facebookEmail)
+          ? data.facebookEmail
+          : [data.facebookEmail]
+      );
       setFacebookPassword(data.facebookPassword);
       setBotToken(data.botToken);
       setTelegramChatIds(data.telegramChatIds);
@@ -47,7 +51,7 @@ const ConfigForm: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     await updateConfig({
-      facebookEmail,
+      facebookEmail: facebookEmails,
       facebookPassword,
       botToken,
       telegramChatIds,
@@ -61,37 +65,60 @@ const ConfigForm: React.FC = () => {
       className="w-full max-w-lg bg-slate-800 text-gray-50 p-8 rounded shadow-md"
       onSubmit={handleSubmit}
     >
-      <TextField
-        label="Facebook Email"
-        name="facebookEmail"
-        value={facebookEmail}
-        onChange={(e) => setFacebookEmail(e.target.value)}
-        fullWidth
-        margin="normal"
-        required
-        InputProps={{
-          style: {
-            color: "white",
-            borderColor: "white",
-          },
-        }}
-        InputLabelProps={{
-          style: { color: "rgb(249 250 251)" },
-        }}
-        sx={{
-          "& .MuiOutlinedInput-root": {
-            "& fieldset": {
-              borderColor: "white",
-            },
-            "&:hover fieldset": {
-              borderColor: "white",
-            },
-            "&.Mui-focused fieldset": {
-              borderColor: "white",
-            },
-          },
-        }}
-      />
+      <div className="mt-4">
+        <h3 className="font-bold mb-4">Facebook Emails:</h3>
+        {facebookEmails?.map((email, index) => (
+          <div key={index} className="flex items-center mb-4">
+            <TextField
+              label={`Email ${index + 1}`}
+              value={email}
+              onChange={(e) =>
+                handleInputChange(index, e.target.value, setFacebookEmails)
+              }
+              fullWidth
+              required
+              InputProps={{
+                style: {
+                  color: "white",
+                  borderColor: "white",
+                },
+              }}
+              InputLabelProps={{
+                style: { color: "rgb(249 250 251)" },
+              }}
+              sx={{
+                "& .MuiOutlinedInput-root": {
+                  "& fieldset": {
+                    borderColor: "white",
+                  },
+                  "&:hover fieldset": {
+                    borderColor: "white",
+                  },
+                  "&.Mui-focused fieldset": {
+                    borderColor: "white",
+                  },
+                },
+              }}
+            />
+            <IconButton
+              onClick={() => handleRemoveField(index, setFacebookEmails)}
+              disabled={facebookEmails.length === 1}
+              sx={{ color: "rgb(249 250 251)" }}
+            >
+              <RemoveIcon />
+            </IconButton>
+          </div>
+        ))}
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => handleAddField(setFacebookEmails)}
+          startIcon={<AddIcon />}
+        >
+          Add Email
+        </Button>
+      </div>
+
       <TextField
         label="Facebook Password"
         name="facebookPassword"

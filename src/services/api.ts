@@ -3,6 +3,11 @@ import axios from "axios";
 // import.meta.env.VITE_API_URL
 export const API_URL = import.meta.env.VITE_API_URL;
 
+export const restartServer = async () => {
+  const response = await axios.post(`${API_URL}/restart`);
+  return response.data;
+};
+
 export const getConfig = async () => {
   const response = await axios.get(`${API_URL}/config`);
   return response.data;
