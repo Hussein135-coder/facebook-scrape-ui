@@ -79,3 +79,8 @@ export const pagesInformation: PagesObject = {
   iondraa: "درعا",
   moooo22: "ادلب",
 };
+
+export const getLog = async () => {
+  const response = await axios.get(`${API_URL}/log`);
+  return response.data;
+};

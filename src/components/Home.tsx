@@ -3,6 +3,7 @@ import ConfigForm from "./ConfigForm";
 import ImageGallery from "./ImageGallery";
 import useDataContext from "../hooks/useDataContext";
 import { restartServer } from "../services/api";
+import Log from "./Log";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -44,6 +45,7 @@ const Home = () => {
       </div>
       <ConfigForm />
       <ImageGallery />
+      <Log />
     </div>
   );
 };
