@@ -24,7 +24,7 @@ const Log = () => {
     fetchLog();
 
     // Optional: Set up polling to refresh logs every X seconds
-    const interval = setInterval(fetchLog, 50000); // Refresh every 5 seconds
+    const interval = setInterval(fetchLog, 5000); // Refresh every 5 seconds
 
     return () => clearInterval(interval); // Cleanup on unmount
   }, []);
